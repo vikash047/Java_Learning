@@ -28,7 +28,11 @@ public class Main {
        System.out.println("Acquired first  lock");
        nre.lock(2);
        System.out.printf("Acquired second lock");*/
-       MissedSignaled.runTest();
+       //MissedSignaled.runTest();
+       //DemoBlokingQueue.Demo();
+       //DefferredCallbackExecutor.runTestTenCallBack();
+       //ReaderWritter.Demo();
+       UberRideProblem.Demo();
        long elasped = System.currentTimeMillis() - start;
        System.out.println("  time spend " + elasped);
     }
