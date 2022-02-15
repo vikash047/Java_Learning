@@ -32,7 +32,9 @@ public class Main {
        //DemoBlokingQueue.Demo();
        //DefferredCallbackExecutor.runTestTenCallBack();
        //ReaderWritter.Demo();
-       UberRideProblem.Demo();
+       //UberRideProblem.Demo();
+       //DinningPhiloshper.demo();
+       BarbarShop.demo();
        long elasped = System.currentTimeMillis() - start;
        System.out.println("  time spend " + elasped);
     }
