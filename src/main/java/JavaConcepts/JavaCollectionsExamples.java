@@ -21,6 +21,8 @@ public class JavaCollectionsExamples {
         PriorityQueue<Integer> pq = new PriorityQueue<>();
         Deque<Integer> spq = new ArrayDeque<>();
         Stack<Integer> st = new Stack<>();
+        Stack<Character> cst = new Stack<>();
+        //st.
        // Map<Integer, Integer> mmp = new HashMultiMap<>
 
     }
