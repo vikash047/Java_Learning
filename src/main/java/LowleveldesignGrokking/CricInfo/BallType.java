@@ -1,4 +1,8 @@
 package LowleveldesignGrokking.CricInfo;
 
-public class BallType {
+public enum BallType {
+    NORMAL,
+    WIDE,
+    WICKET,
+    NO_BALL,
 }

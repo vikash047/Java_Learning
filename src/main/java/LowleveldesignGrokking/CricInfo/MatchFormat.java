@@ -1,4 +1,7 @@
 package LowleveldesignGrokking.CricInfo;
 
-public class MatchFormat {
+public enum MatchFormat {
+    ODI,
+    Test,
+    T20,
 }

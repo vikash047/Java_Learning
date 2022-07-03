@@ -1,4 +1,7 @@
 package LowleveldesignGrokking.CricInfo;
 
-public class UmpireType {
+public enum UmpireType {
+    FIELD,
+    RESERVED,
+    TV,
 }

@@ -1,5 +1,4 @@
 package LowleveldesignGrokking.CricInfo;
 
-public class Playing11 {
-    
+public class PlayerContract {
 }
