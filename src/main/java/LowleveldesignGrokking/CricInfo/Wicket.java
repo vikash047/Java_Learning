@@ -1,4 +1,4 @@
 package LowleveldesignGrokking.CricInfo;
 
-public class Wiicket {
+public class Wicket {
 }

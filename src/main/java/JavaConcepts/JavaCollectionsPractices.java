@@ -52,6 +52,13 @@ public class JavaCollectionsPractices {
         }
         //Collections.
         int[][] b = new  int[3][5];
+        ///Integer[] a = new Integer[][10];
+        /*Arrays.sort(a, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });*/
     }
 
     public static void stack() {
