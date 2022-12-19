@@ -22,12 +22,13 @@ public class JavaCollectionsPractice {
     public  void CallFunctions()
     {
         //ArrayListP();
-        //StackP();
-        //QueueP();
+        //StackP()QueueP();
         //PriorityQueueP();
-        //DequeP();
+       // DequeP();
         //SetAllType();
         MapAllType();
+        Random rm = new Random();
+        int id = rm.nextInt(100);
     }
     public void ArrayListP()
     {
@@ -71,7 +72,7 @@ public class JavaCollectionsPractice {
     }
     public void QueueP()
     {
-        Queue<Integer> pq = new LinkedList<>();
+        Queue<Integer> pq = new ArrayDeque<>();
         pq.add(1);
         pq.add(2);
         pq.add(3);
@@ -175,13 +176,14 @@ public class JavaCollectionsPractice {
         treeMap.put(6, 9);
         treeMap.put(11, 2);
         System.out.println(treeMap.ceilingKey(6));
-        System.out.println(treeMap.floorKey(3));
+        System.out.println(treeMap.floorKey(4));
         System.out.println(treeMap.higherKey(6));
         System.out.println(treeMap.lowerKey(6));
         for(Map.Entry<Integer, Integer> entry : treeMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
         treeMap.put(6, 6);
+
         System.out.println(treeMap.ceilingEntry(6).getValue());
 
         LinkedBlockingQueue<Integer> queue = new LinkedBlockingQueue<>();
