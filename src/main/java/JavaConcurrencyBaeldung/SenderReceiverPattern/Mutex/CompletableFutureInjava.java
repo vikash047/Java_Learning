@@ -1,7 +1,6 @@
 package JavaConcurrencyBaeldung.SenderReceiverPattern.Mutex;
 
 import JavaConcurrencyBaeldung.SenderReceiverPattern.CompleteAbleFutureInJava;
-import sun.net.www.protocol.file.FileURLConnection;
 
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;

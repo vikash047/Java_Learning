@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class DCLoadBalancer {
     class Machine {
@@ -40,7 +41,8 @@ public class DCLoadBalancer {
                     System.out.println("False");
                 }
             }
-            return position.entrySet().stream().map(x -> new Pair(x.getValue(), apps.get(x.getValue()).key)).toList();
+            return position.entrySet().stream().map(x -> new Pair(x.getValue(), apps.get(x.getValue()).key))
+                    .collect(Collectors.toList());
         }
 
         @Override
@@ -132,6 +134,7 @@ public class DCLoadBalancer {
     }
 
     public List<Integer> getApplications(int machineId) {
-        return machines.get(machineId).getApps().stream().map(x -> x.key).toList();
+        return machines.get(machineId).getApps().stream().map(x -> x.key)
+                .collect(Collectors.toList());
     }
 }

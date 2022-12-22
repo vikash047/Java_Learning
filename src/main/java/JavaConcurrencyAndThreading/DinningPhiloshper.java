@@ -1,7 +1,5 @@
 package JavaConcurrencyAndThreading;
 
-import org.omg.PortableServer.THREAD_POLICY_ID;
-
 import java.util.Random;
 import java.util.concurrent.Semaphore;
 

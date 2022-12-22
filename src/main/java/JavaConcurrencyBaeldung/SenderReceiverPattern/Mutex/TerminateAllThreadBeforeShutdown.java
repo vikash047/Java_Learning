@@ -1,7 +1,5 @@
 package JavaConcurrencyBaeldung.SenderReceiverPattern.Mutex;
 
-import com.sun.org.apache.bcel.internal.ExceptionConstants;
-
 import java.util.List;
 import java.util.concurrent.*;
 
