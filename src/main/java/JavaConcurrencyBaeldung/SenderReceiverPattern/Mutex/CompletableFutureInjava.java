@@ -10,7 +10,7 @@ import java.util.concurrent.Future;
 public class CompletableFutureInjava {
     public Future<String> calculateAsync() {
         CompletableFuture<String> future = new CompletableFuture<>();
-        Executors.newCachedThreadPool().submit(() -> {
+        Executors.newCachedThreadPool().execute(() -> {
            try {
                Thread.sleep(400);
                future.complete("Hello");

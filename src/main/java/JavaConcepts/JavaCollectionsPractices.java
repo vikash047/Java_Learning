@@ -17,7 +17,20 @@ public class JavaCollectionsPractices {
 //    public Integer lowerBound(ArrayList<Integer> arr, int key) {
 //
 //    }
-
+ class Pair<K, V> {
+        K k;
+        V v;
+        public Pair(K k, V v) {
+            this.k = k;
+            this.v = v;
+        }
+        K getKey() {
+            return k;
+        }
+        V getValue() {
+            return v;
+        }
+}
     public static void ArrayListP() {
         ArrayList<Integer> arr = new ArrayList<>();
         arr.add(1);
@@ -33,15 +46,19 @@ public class JavaCollectionsPractices {
         System.out.println(index);
         index = Collections.binarySearch(arr, 4);
         System.out.println(index);
-        Collections.sort(arr, new Comparator<Integer>() {
-            public int compare(Integer o1, Integer o2) {
-                return  o2.compareTo(o1);
-            }
-        });
+        Collections.sort(arr, (o1, o2) -> o2 - o1);
         for(Integer e : arr) {
             System.out.println(e);
         }
         //Collections.
+        int[][] b = new  int[3][5];
+        ///Integer[] a = new Integer[][10];
+        /*Arrays.sort(a, new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });*/
     }
 
     public static void stack() {
@@ -164,6 +181,7 @@ public class JavaCollectionsPractices {
          System.out.println(tmp.ceilingEntry(4).getValue());
          System.out.println(tmp.lowerEntry(3).getValue());
          System.out.println(tmp.higherEntry(3).getValue());
+         System.out.println(tmp.floorKey(4));
      }
 }
 
