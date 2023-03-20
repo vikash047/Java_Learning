@@ -1,10 +1,7 @@
 package Interview.IO.TaskSchedular;
 
 import java.time.Duration;
-import java.util.AbstractMap;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.*;
 import java.util.function.Function;
 

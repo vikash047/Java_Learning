@@ -1,6 +1,7 @@
 package Interview.IO.EventBus.Models;
 
 import java.util.Map;
+import java.util.Objects;
 
 public class Event {
     private final EventId id;
@@ -29,5 +30,18 @@ public class Event {
 
     public TimeStamp getTimeStamp() {
         return timeStamp;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Event event = (Event) o;
+        return Objects.equals(id, event.id) && Objects.equals(eventName, event.eventName) && Objects.equals(attributes, event.attributes) && Objects.equals(timeStamp, event.timeStamp);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, eventName, attributes, timeStamp);
     }
 }
