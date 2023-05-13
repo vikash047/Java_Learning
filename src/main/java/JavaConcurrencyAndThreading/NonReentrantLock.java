@@ -1,5 +1,7 @@
 package JavaConcurrencyAndThreading;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class NonReentrantLock {
     private boolean isLocked;
 

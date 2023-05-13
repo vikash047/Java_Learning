@@ -45,7 +45,8 @@ public class TerminateAllThreadBeforeShutdown {
 
     public void executorCompletionService(List<Callable<Integer>> callables) throws InterruptedException {
         ExecutorService executorService = Executors.newFixedThreadPool(4);
-        ExecutorCompletionService<Integer> executorCompletionService = new ExecutorCompletionService<>(executorService);
+        BlockingQueue<Future<Integer>> pq = new LinkedBlockingDeque<>();
+        ExecutorCompletionService<Integer> executorCompletionService = new ExecutorCompletionService<>(executorService, pq);
         for(Callable<Integer> c : callables) executorCompletionService.submit(c);
         Future<Integer> res = executorCompletionService.take();
         // await termination on the executor service using line number 8 code.

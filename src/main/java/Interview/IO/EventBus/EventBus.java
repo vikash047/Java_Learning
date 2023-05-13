@@ -11,6 +11,7 @@ import java.util.concurrent.CompletionStage;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.function.Function;
 
 public class EventBus {
     private final KeyedExecutor<String> keyedExecutor;
@@ -47,7 +48,9 @@ public class EventBus {
             final EventIndex index = subscribersIndex.get(topic).get(subscriber);
             try {
                 final Event event = buses.get(topic).get(index.getIndex());
-                subscribersIndex.get(topic).put(subscriber, index.increment());
+                setIndexAfterEvent(topic, event.getId(), subscriber).handleAsync((a, t) -> {
+                    return "Hello";
+                });
                 return event;
             } catch (IndexOutOfBoundsException ex) {
                 return null;

@@ -23,8 +23,9 @@ public class ExeccutorServiceConcept {
         }
     }
     public void Signature() throws InterruptedException {
-        ExecutorService executorService = new ThreadPoolExecutor(1, 1, 1,
+        ThreadPoolExecutor executorService = new ThreadPoolExecutor(1, 1, 1,
                 TimeUnit.MILLISECONDS, new LinkedBlockingDeque<>(1), new CustomFactory(), new CustomRejectedHandler());
+        executorService.setRejectedExecutionHandler(new CustomRejectedHandler());
         Runnable runnable = () -> {
             try {
                 System.out.println("Runnable run " + Thread.currentThread().getId());

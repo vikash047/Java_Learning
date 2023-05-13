@@ -99,7 +99,7 @@ public class ThreadPoolConcepts {
         int count = 10;
         while(count != 0)  {
             Future<Integer> f = service.poll();
-            if(f != null) {
+            if(f != null && f.isDone()) {
                 System.out.println("Thread " + f.get() + " got done");
                 count--;
             }

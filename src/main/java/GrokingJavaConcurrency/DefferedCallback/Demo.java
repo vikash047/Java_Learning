@@ -7,7 +7,7 @@ public class Demo {
     public static void main(String[] args) throws InterruptedException {
         Set<Thread> threadSet = new HashSet<>();
         final DefferedCallBackExecutor defferedCallBackExecutor = new DefferedCallBackExecutor();
-        Thread service = new Thread(new Runnable() {
+        Thread service = Thread.ofVirtual().name("consumer").start(new Runnable() {
             @Override
             public void run() {
                 try {

@@ -1,26 +1,56 @@
 package GrokingJavaConcurrency.ReadWriteLock;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+
 public class ReadWriteLock {
     private int reader = 0;
-    private Boolean isWriter = false;
-    public synchronized void acquireReadLock() throws InterruptedException {
-        if(isWriter) {
-            wait();
+    private volatile Boolean isWriter = false;
+    private final ReentrantLock lock  = new ReentrantLock();
+    private final Condition writerWaiting = lock.newCondition();
+    private final Condition readerWaiting = lock.newCondition();
+    public void acquireReadLock() throws InterruptedException {
+        lock.lock();
+        try {
+            if(isWriter) {
+                readerWaiting.await();
+            }
+            reader++;
+        } finally {
+            lock.unlock();
         }
-        reader++;
     }
-    public synchronized void releaseReadLock() {
-        reader--;
-        notify();
-    }
-    public synchronized void acquireWriteLock() throws InterruptedException {
-        while (isWriter || reader != 0) {
-            wait();
+    public void releaseReadLock() {
+        lock.lock();
+        try {
+            reader--;
+            if(reader == 0) {
+                writerWaiting.signal();
+            } else {
+                readerWaiting.signal();
+            }
+        } finally {
+            lock.unlock();
         }
-        isWriter = true;
     }
-    public synchronized void releaseWriteLock() {
-        isWriter = false;
-        notify();
+    public void acquireWriteLock() throws InterruptedException {
+        lock.lock();
+        try {
+            while (isWriter || reader != 0) {
+                writerWaiting.await();
+            }
+            isWriter = true;
+        } finally {
+            lock.unlock();
+        }
+    }
+    public void releaseWriteLock() {
+        lock.lock();
+        try {
+            isWriter = false;
+            readerWaiting.signal();
+        } finally {
+            lock.unlock();
+        }
     }
 }

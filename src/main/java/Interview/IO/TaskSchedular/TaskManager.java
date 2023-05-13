@@ -62,7 +62,10 @@ public class TaskManager implements AutoCloseable {
             if(entry.getKey() <= System.currentTimeMillis()) {
                 schedulePriorityQueue.pollFirstEntry();
                 for(var t : entry.getValue())
-                    taskExecutor.execute(t);
+                    taskExecutor.execute(t).exceptionally(x -> {
+                        System.out.println(x);
+                        return Void.TYPE.cast("void");
+                    });
             }
         }
         return CompletableFuture.completedFuture("Stopped the Poll Scheduled Task");

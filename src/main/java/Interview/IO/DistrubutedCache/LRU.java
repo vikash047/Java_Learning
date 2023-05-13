@@ -5,6 +5,7 @@ import Interview.IO.DistrubutedCache.Models.Record;
 import Interview.IO.DistrubutedCache.Models.Timer;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ConcurrentSkipListMap;
 import java.util.concurrent.ConcurrentSkipListSet;
@@ -25,6 +26,7 @@ public class LRU<KEY> implements EvictionAlgorithm<KEY> {
             ConcurrentSkipListSet<KEY> keys = priorityQueue.pollFirstEntry().getValue();
             if(keys.isEmpty()) continue;
             result.addAll(keys);
+            break;
         }
         return result;
     }

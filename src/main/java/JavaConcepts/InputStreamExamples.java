@@ -5,7 +5,7 @@ import java.io.*;
 public class InputStreamExamples {
     public void fileInputStream() throws IOException {
         FileInputStream fin = new FileInputStream("vikash.txt");
-        BufferedInputStream bin = new BufferedInputStream(fin);
+        BufferedInputStream bin = new BufferedInputStream(System.in);
         int i;
         while ((i = bin.read()) != -1) {
             System.out.print((char) i);

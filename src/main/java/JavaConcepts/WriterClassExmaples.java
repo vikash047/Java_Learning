@@ -30,6 +30,7 @@ public class WriterClassExmaples {
         FileWriter fw  = new FileWriter("vikash.txt");
         BufferedWriter bufferedWriter = new BufferedWriter(fw);
         bufferedWriter.write("Welcome to our house!");
+        bufferedWriter.flush();
         bufferedWriter.close();
     }
     // CharArrayWriter is buffer used to write to multiple stream writeTo(Writer out) method used.
