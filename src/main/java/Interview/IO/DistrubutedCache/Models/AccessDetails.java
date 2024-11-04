@@ -29,8 +29,7 @@ public class AccessDetails {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        AccessDetails that = (AccessDetails) o;
+        if (!(o instanceof AccessDetails that)) return false;
         return lastAccessTime == that.lastAccessTime && getAccessCount() == that.getAccessCount();
     }
 

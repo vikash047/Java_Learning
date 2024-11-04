@@ -53,7 +53,6 @@ class OpenLocksTest {
         int[] a = {1, 2, 3, 3, 3, 4, 5, 5, 5, 5, 5, 5, 7, 9};
         var b = List.of(Arrays.stream(a).boxed().toArray(Integer[]::new));
         List<Double> doubles = new ArrayList<>();
-
         System.out.println(upperBound(b, 5));
     }
 
@@ -66,9 +65,12 @@ class OpenLocksTest {
     }
     @Test
     void openLock() {
-        OpenLocks openLocks = new OpenLocks();
-        String[] arr = {"0201","0101","0102","1212","2002"};
-        System.out.println(openLocks.openLock(arr,"0202"));
-        List<Integer> a = new ArrayList<>();
+        System.out.println(Collections.binarySearch(Arrays.asList(8, 8, 8, 8, 8, 8), 8));
+        Collections.sort(Arrays.asList(1, 2), new Comparator<Integer>() {
+            @Override
+            public int compare(Integer o1, Integer o2) {
+                return 0;
+            }
+        });
     }
 }

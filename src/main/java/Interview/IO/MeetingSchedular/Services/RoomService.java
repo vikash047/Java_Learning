@@ -13,7 +13,7 @@ public class RoomService {
     }
 
     public boolean book(Meeting meeting) {
-        return meetingService.canMeetingSchedule(meeting.getStartTime(), meeting.getEndTime(), room.getId());
+        return meetingService.canMeetingSchedule(meeting.getStartTime(), meeting.getEndTime(), meeting.getId());
     }
 
     public List<String> bookedHistory() {

@@ -23,8 +23,8 @@ public class BookingService {
         if(roomServiceMap.containsKey(meeting.getRoomId())) {
             RoomService service = roomServiceMap.get(meeting.getRoomId());
             if(service.book(meeting)) {
-                notificationService.notify(meeting.getUserIdList());
                 meeting = meeting.addId(IdGenerator.getId());
+                notificationService.notify(meeting.getUserIdList());
                 meetingMap.put(meeting.getId(), meeting);
             }
         }

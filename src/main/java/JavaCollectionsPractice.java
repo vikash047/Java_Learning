@@ -48,6 +48,7 @@ public class JavaCollectionsPractice {
             System.out.print(e + " ");
         }
         int index = Collections.binarySearch(arr, 2);
+        arr.remove(0);
         System.out.println(index);
         Collections.sort(arr, new Comparator<Integer>() {
             @Override
@@ -163,6 +164,7 @@ public class JavaCollectionsPractice {
         mp.put(2, 3);
         mp.put(3, 4);
         mp.put(4, 5);
+        mp.remove(3);
         for(Map.Entry<Integer, Integer> k : mp.entrySet()) {
             System.out.println(k.getKey() + " " + k.getValue());
         }
@@ -175,10 +177,11 @@ public class JavaCollectionsPractice {
         treeMap.put(3, 5);
         treeMap.put(6, 9);
         treeMap.put(11, 2);
-        System.out.println(treeMap.ceilingKey(6));
+        System.out.println(treeMap.ceilingEntry(6));
         System.out.println(treeMap.floorKey(4));
         System.out.println(treeMap.higherKey(6));
         System.out.println(treeMap.lowerKey(6));
+        treeMap.ceilingEntry(2);
         for(Map.Entry<Integer, Integer> entry : treeMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }

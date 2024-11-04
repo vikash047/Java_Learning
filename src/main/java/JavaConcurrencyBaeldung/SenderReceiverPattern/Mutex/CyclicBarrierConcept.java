@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Random;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 
 public class CyclicBarrierConcept {
     // cyclic barrier is synchronization construct used between threads  to reach at comman barrier.
@@ -34,11 +36,13 @@ public class CyclicBarrierConcept {
             try {
                 System.out.println("Waiting for the other thread to  reach at common point"
                 + Thread.currentThread().getName());
-                cyclicBarrier.await();
+                cyclicBarrier.await(100, TimeUnit.MILLISECONDS);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (BrokenBarrierException e) {
                 e.printStackTrace();
+            } catch (TimeoutException e) {
+                throw new RuntimeException(e);
             }
         }
     }

@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Java_Learning" options="--enable-preview" />
+      <module name="Java_Learning" options="" />
     </option>
   </component>
 </project>

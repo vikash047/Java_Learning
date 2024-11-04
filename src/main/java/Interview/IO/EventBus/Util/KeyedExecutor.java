@@ -1,17 +1,14 @@
 package Interview.IO.EventBus.Util;
 
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CompletionStage;
-import java.util.concurrent.Executor;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
 public class KeyedExecutor<KEY> {
-    private final Executor[] executorServices;
+    private final ExecutorService[] executorServices;
 
     public KeyedExecutor(int threads) {
-        this.executorServices = new Executor[threads];
+        this.executorServices = new ExecutorService[threads];
         for(int i = 0; i < threads; i++) {
             this.executorServices[i] = Executors.newSingleThreadExecutor();
         }

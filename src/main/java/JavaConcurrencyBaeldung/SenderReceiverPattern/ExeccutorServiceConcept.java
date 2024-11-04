@@ -9,7 +9,9 @@ public class ExeccutorServiceConcept {
 
         @Override
         public Thread newThread(Runnable r) {
-            Thread thread = new Thread(r,"CustomFactory");
+            Thread thread = Thread.ofVirtual().factory().newThread(r);
+            thread.setDaemon(true);
+            thread.setName("vikash");
             return thread;
         }
     }

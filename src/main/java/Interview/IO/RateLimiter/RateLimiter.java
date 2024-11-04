@@ -2,14 +2,14 @@ package Interview.IO.RateLimiter;
 
 import Interview.IO.RateLimiter.Models.Client;
 import Interview.IO.RateLimiter.Models.ClientId;
+import Interview.IO.RateLimiter.Models.RequestInfo;
+import Interview.IO.RateLimiter.Services.Limiter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
-
-import Interview.IO.RateLimiter.Models.RequestInfo;
-import Interview.IO.RateLimiter.Services.*;
 
 public class RateLimiter {
 
@@ -28,7 +28,18 @@ public class RateLimiter {
         if(!clientIdClientMap.containsKey(client.getClientId())) {
             clientIdClientMap.put(client.getClientId(), client);
         }
-        return CompletableFuture.completedFuture(null).thenAccept(x -> {});
+        return CompletableFuture.completedFuture(null);
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RateLimiter that)) return false;
+        return Objects.equals(clientIdClientMap, that.clientIdClientMap) && Objects.equals(limiter, that.limiter);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientIdClientMap, limiter);
+    }
 }

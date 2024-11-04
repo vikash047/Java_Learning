@@ -48,9 +48,7 @@ public class EventBus {
             final EventIndex index = subscribersIndex.get(topic).get(subscriber);
             try {
                 final Event event = buses.get(topic).get(index.getIndex());
-                setIndexAfterEvent(topic, event.getId(), subscriber).handleAsync((a, t) -> {
-                    return "Hello";
-                });
+                setIndexAfterEvent(topic, event.getId(), subscriber).thenAccept(System.out::println);
                 return event;
             } catch (IndexOutOfBoundsException ex) {
                 return null;
