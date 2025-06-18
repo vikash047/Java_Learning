@@ -1,7 +1,5 @@
 package FairMatic.Services;
 
-import JavaConcurrencyAndThreading.Executor;
-
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

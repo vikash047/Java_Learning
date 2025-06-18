@@ -58,7 +58,6 @@ public class CustomMap {
         private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
         private final ReentrantLock expirationLock = new ReentrantLock();
         private final Condition expirationSignal = expirationLock.newCondition();
-        private final Condition notEmpty = lock.writeLock().newCondition();
         private final PriorityQueue<ExpiryEntry> expiryQueue = new PriorityQueue<>();
 
         private int total;
@@ -100,7 +99,6 @@ public class CustomMap {
                 total++;
                 sum += value;
                 addToExpiryQueue(key, ttl);
-                notEmpty.signal();
             } finally {
                 lock.writeLock().unlock();
             }
@@ -134,7 +132,6 @@ public class CustomMap {
                         sum -= v;
                     }
                 }
-                notEmpty.signal();
             } finally {
                 lock.writeLock().unlock();
             }

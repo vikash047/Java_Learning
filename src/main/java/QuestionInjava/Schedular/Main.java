@@ -1,5 +1,8 @@
 package QuestionInjava.Schedular;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Main {
 
     class WorkImpl implements Work {
@@ -19,6 +22,8 @@ public class Main {
        // var t4 = new Thread(() -> workerScheduler.blockUntilCompleted()));
 
        // var t3 = new Thread(() -> workerScheduler.Schedule(w);
+        Map<Integer, Integer> mp = new HashMap<>();
+        int[] e = mp.values().stream().mapToInt(x -> x).toArray();
 
 
     }

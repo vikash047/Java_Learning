@@ -6,9 +6,9 @@ import java.util.Map;
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.function.Function;
 
-import static java.lang.System.*;
+import static java.lang.System.currentTimeMillis;
+import static java.lang.System.out;
 
 /*
 problem is implement a map with operation put(key, value, ttl), get(key), delete(key), getAverage() till now all the valid keys. 
